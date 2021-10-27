@@ -96,8 +96,8 @@ impl WgetConfig {
         body: &str
     ) -> Result<Self, crate::error::ParseError> {
         let id = "random-id";
-        let cache = crate::ftd_lib::Library {};
-        let b = match ftd::p2::Document::without_render(id, body, &cache) {
+        let library = crate::ftd_lib::Library {};
+        let b = match ftd::p2::Document::without_render(id, body, &library) {
             Ok(v) => v,
             Err(e) => {
                 println!("failed to parse {}: {:?}\n\n{}", id, &e, body);
